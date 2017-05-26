@@ -1,0 +1,19 @@
+info:
+	app:
+		name: Mars Robot
+		description: Mars Robot REST API
+		version: 0.0.1-SNAPSHOT
+		
+endpoints:
+	health:
+		enabled: true
+		sensitive: false
+		
+	info:
+		enabled: true
+		
+	mappings:
+		enabled: true
+		
+	metrics:
+		enabled: true		
