@@ -267,4 +267,39 @@ public class RobotTest {
 		
 	}
 	
+	@Test
+	public void sendCommandToMove() {
+		this.robot.sendCommand("M");
+		
+		assertEquals(0, this.robot.getX());
+		assertEquals(1, this.robot.getY());
+		assertEquals("N", this.robot.getDirection());
+		assertEquals("(0, 1, N)", this.robot.getPosition());
+	}
+	
+	@Test
+	public void sendCommandToRotateLeft() {
+		this.robot.sendCommand("L");
+		
+		assertEquals(0, this.robot.getX());
+		assertEquals(0, this.robot.getY());
+		assertEquals("W", this.robot.getDirection());
+		assertEquals("(0, 0, W)", this.robot.getPosition());
+	}
+	
+	@Test
+	public void sendCommandToRotateRight() {
+		this.robot.sendCommand("R");
+		
+		assertEquals(0, this.robot.getX());
+		assertEquals(0, this.robot.getY());
+		assertEquals("E", this.robot.getDirection());
+		assertEquals("(0, 0, E)", this.robot.getPosition());
+	}
+	
+	@Test(expected=InvalidCommandException.class)
+	public void sendInvalidCommand() {
+		this.robot.sendCommand("A");
+	}
+	
 }

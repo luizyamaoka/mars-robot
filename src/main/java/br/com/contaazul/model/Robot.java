@@ -12,15 +12,15 @@ public class Robot {
 		this.direction = "N";
 	}
 	
-	public int getX() {
+	protected int getX() {
 		return this.x;
 	}
 
-	public int getY() {
+	protected int getY() {
 		return this.y;
 	}
 
-	public String getDirection() {
+	protected String getDirection() {
 		return this.direction;
 	}
 
@@ -28,21 +28,21 @@ public class Robot {
 		return String.format("(%d, %d, %s)", this.x, this.y, this.direction);
 	}
 
-	public void rotateLeft() {
+	protected void rotateLeft() {
 		if (this.direction == "N") this.direction = "W";
 		else if (this.direction == "W") this.direction = "S";
 		else if (this.direction == "S") this.direction = "E";
 		else if (this.direction == "E") this.direction = "N";
 	}
 
-	public void rotateRight() {
+	protected void rotateRight() {
 		if (this.direction == "N") this.direction = "E";
 		else if (this.direction == "E") this.direction = "S";
 		else if (this.direction == "S") this.direction = "W";
 		else if (this.direction == "W") this.direction = "N";
 	}
 
-	public void move() {
+	protected void move() {
 		if (this.direction == "N") this.y++;
 		else if (this.direction == "S") this.y--;
 		else if (this.direction == "E") this.x++;
@@ -53,6 +53,13 @@ public class Robot {
 		if (this.x > 5) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion east");
 		if (this.x < 0) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion west");
 		
+	}
+
+	public void sendCommand(String command) {
+		if (command == "M") this.move();
+		else if (command == "L") this.rotateLeft();
+		else if (command == "R") this.rotateRight();
+		else throw new InvalidCommandException("Invalid command for the robot");
 	}
 
 }
