@@ -28,4 +28,19 @@ public class Robot {
 		return String.format("(%d, %d, %s)", this.x, this.y, this.direction);
 	}
 
+	public void rotateLeft() {
+		if (this.direction == "N") this.direction = "W";
+		else if (this.direction == "W") this.direction = "S";
+		else if (this.direction == "S") this.direction = "E";
+		else if (this.direction == "E") this.direction = "N";
+	}
+
+	public void rotateRight() {
+		if (this.direction == "N") this.direction = "E";
+		else if (this.direction == "E") this.direction = "S";
+		else if (this.direction == "S") this.direction = "W";
+		else if (this.direction == "W") this.direction = "N";
+		
+	}
+
 }
