@@ -48,9 +48,9 @@ public class Robot {
 		else if (this.direction.equals("E")) this.x++;
 		else if (this.direction.equals("W")) this.x--;
 		
-		if (this.y > 5) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion north");
+		if (this.y > 4) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion north");
 		if (this.y < 0) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion south");
-		if (this.x > 5) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion east");
+		if (this.x > 4) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion east");
 		if (this.x < 0) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion west");
 		
 	}

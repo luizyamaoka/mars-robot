@@ -138,8 +138,7 @@ public class RobotTest {
 	}
 	
 	@Test
-	public void moveSixTimes() {
-		this.robot.move();
+	public void moveFiveTimes() {
 		this.robot.move();
 		this.robot.move();
 		this.robot.move();
@@ -204,7 +203,6 @@ public class RobotTest {
 	@Test
 	public void moveOutOfBoundsInDirectionEast() {
 		this.robot.rotateRight();
-		this.robot.move();
 		this.robot.move();
 		this.robot.move();
 		this.robot.move();
