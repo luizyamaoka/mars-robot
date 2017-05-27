@@ -29,24 +29,24 @@ public class Robot {
 	}
 
 	protected void rotateLeft() {
-		if (this.direction == "N") this.direction = "W";
-		else if (this.direction == "W") this.direction = "S";
-		else if (this.direction == "S") this.direction = "E";
-		else if (this.direction == "E") this.direction = "N";
+		if (this.direction.equals("N")) this.direction = "W";
+		else if (this.direction.equals("W")) this.direction = "S";
+		else if (this.direction.equals("S")) this.direction = "E";
+		else if (this.direction.equals("E")) this.direction = "N";
 	}
 
 	protected void rotateRight() {
-		if (this.direction == "N") this.direction = "E";
-		else if (this.direction == "E") this.direction = "S";
-		else if (this.direction == "S") this.direction = "W";
-		else if (this.direction == "W") this.direction = "N";
+		if (this.direction.equals("N")) this.direction = "E";
+		else if (this.direction.equals("E")) this.direction = "S";
+		else if (this.direction.equals("S")) this.direction = "W";
+		else if (this.direction.equals("W")) this.direction = "N";
 	}
 
 	protected void move() {
-		if (this.direction == "N") this.y++;
-		else if (this.direction == "S") this.y--;
-		else if (this.direction == "E") this.x++;
-		else if (this.direction == "W") this.x--;
+		if (this.direction.equals("N")) this.y++;
+		else if (this.direction.equals("S")) this.y--;
+		else if (this.direction.equals("E")) this.x++;
+		else if (this.direction.equals("W")) this.x--;
 		
 		if (this.y > 5) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion north");
 		if (this.y < 0) throw new RobotOutOfBoundsException("Robot moved out of bounds in diretion south");
@@ -56,10 +56,10 @@ public class Robot {
 	}
 
 	public void sendCommand(String command) {
-		if (command == "M") this.move();
-		else if (command == "L") this.rotateLeft();
-		else if (command == "R") this.rotateRight();
-		else throw new InvalidCommandException("Invalid command for the robot");
+		if (command.equals("M")) this.move();
+		else if (command.equals("L")) this.rotateLeft();
+		else if (command.equals("R")) this.rotateRight();
+		else throw new InvalidCommandException(String.format("Invalid command %s for the robot", command));
 	}
 
 }
